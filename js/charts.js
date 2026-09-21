@@ -292,14 +292,49 @@ const KanimeralaCharts = (function () {
         });
     }
 
+    function renderTabCharts(tabId, data) {
+        if (typeof Chart === 'undefined') return;
+        const tc = getThemeColors();
+        Chart.defaults.color = tc.textColor;
+        Chart.defaults.font.family = "'Inter', system-ui, -apple-system, sans-serif";
+        Chart.defaults.font.size = 12;
+
+        try {
+            if (tabId === 'overview') {
+                renderCategoryChart(data, tc);
+                renderAgeGroupChart(data, tc);
+            } else if (tabId === 'demographics') {
+                renderEducationChart(data, tc);
+            } else if (tabId === 'agriculture') {
+                renderCropsChart(data, tc);
+            } else if (tabId === 'infrastructure') {
+                renderHousingSanitationChart(data, tc);
+                renderWaterChart(data, tc);
+            } else if (tabId === 'schemes') {
+                renderSchemesChart(data, tc);
+            } else if (tabId === 'health') {
+                renderHealthChart(data, tc);
+            }
+        } catch(e) {
+            console.warn('Error rendering charts for tab', tabId, e);
+        }
+    }
+
     function updateTheme() {
-        if (typeof KANIMERALA_DATA !== 'undefined') {
-            initAllCharts(KANIMERALA_DATA);
+        const data = window.KANIMERALA_DATA || (typeof KANIMERALA_DATA !== 'undefined' ? KANIMERALA_DATA : null);
+        if (data) {
+            initAllCharts(data);
         }
     }
 
     return {
         initAllCharts,
+        renderTabCharts,
         updateTheme
     };
 })();
+
+if (typeof window !== 'undefined') {
+    window.KanimeralaCharts = KanimeralaCharts;
+}
+

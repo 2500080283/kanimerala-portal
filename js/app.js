@@ -4,7 +4,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    const data = window.KANIMERALA_DATA;
+    const data = window.KANIMERALA_DATA || (typeof KANIMERALA_DATA !== 'undefined' ? KANIMERALA_DATA : null);
     if (!data) {
         console.error('Village dataset not found.');
         return;
@@ -36,8 +36,10 @@ document.addEventListener('DOMContentLoaded', () => {
     populateGrievanceList();
     renderHouseholds();
 
-    // Init Charts
-    KanimeralaCharts.initAllCharts(data);
+    // Init Charts for initial view
+    if (window.KanimeralaCharts) {
+        window.KanimeralaCharts.initAllCharts(data);
+    }
 
     // -------------------------------------------------------------
     // Tab Navigation
@@ -55,18 +57,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 p.classList.toggle('active', p.id === `tab-${tabId}`);
             });
 
-            // Re-render charts when switching to relevant tabs to prevent canvas size zero issues
+            // Re-render / update charts for the newly visible tab
             setTimeout(() => {
-                KanimeralaCharts.initAllCharts(data);
-            }, 50);
+                if (window.KanimeralaCharts && window.KanimeralaCharts.renderTabCharts) {
+                    window.KanimeralaCharts.renderTabCharts(tabId, data);
+                }
+            }, 60);
 
-            // Update URL hash
-            window.location.hash = tabId;
+            // Update URL hash safely without jumping
+            try {
+                history.replaceState(null, '', '#' + tabId);
+            } catch(e) {}
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         tabs.forEach(t => {
-            t.addEventListener('click', () => {
+            t.addEventListener('click', (e) => {
+                e.preventDefault();
                 const target = t.getAttribute('data-tab');
                 switchTab(target);
             });
@@ -76,6 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const hash = window.location.hash.replace('#', '');
         if (hash && document.getElementById(`tab-${hash}`)) {
             switchTab(hash);
+        } else {
+            switchTab('overview');
         }
     }
 
