@@ -1,0 +1,49 @@
+{
+    "household": {
+        "id": 13,
+        "headName": "Bhukya Srinu",
+        "mobileNumber": "9652851296",
+        "familyMembersCount": 5,
+        "houseOwnership": "Government Allocated House",
+        "houseType": "Pucca (Concrete/cement house)",
+        "toiletFacility": "Private",
+        "electricityConnection": "Yes",
+        "electricityAvailabilityHours": "24",
+        "solarPanelsAvailable": "No",
+        "vehicleCycle": 1,
+        "vehiclePetrol2Wheeler": 2,
+        "appliancesListText": "Fridge, TV",
+        "mobileNetwork": "Jio",
+        "dthProvider": "Citi cable",
+        "drinkingWaterAvailability": "Tap Water",
+        "waterSource": "Government Pipe Water",
+        "povertyStatus": "APL (Income More Than ₹1 Lakh)",
+        "landOwnership": "No Land",
+        "irrigationSystem": "None",
+        "cookingFuel": "LPG",
+        "memberMigrate": "No",
+        "governmentSchemesText": "Jal Jeevan Mission, MNREGA",
+        "remarks": "They need Land Papers",
+        "surveyDate": 1780815030777,
+        "surveyorName": "M.Naveen Kumar , M.Mahesh , B.Karthikeya"
+    },
+    "members": [
+        {
+            "householdId": 13,
+            "name": "Bhukya Nagaraju",
+            "relation": "Son",
+            "age": "30",
+            "gender": "Male",
+            "education": "Graduate",
+            "category": "ST",
+            "occupation": "Private employee",
+            "bankAccountStatus": "Private Account",
+            "bankName": "State Bank of India (SBI)",
+            "aadhaarNumber": "577896195671",
+            "healthProblems": "No",
+            "underTreatment": "No",
+            "mnregaJobCard": "Yes",
+            "contactNumber": "9652851296"
+        }
+    ]
+}

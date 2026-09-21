@@ -1,0 +1,50 @@
+{
+    "household": {
+        "id": 15,
+        "headName": "Bhanavathu Chanti Babu",
+        "mobileNumber": "9398407983",
+        "familyMembersCount": 5,
+        "houseOwnership": "Own House",
+        "houseType": "Kutcha (Mud/thatch house)",
+        "toiletFacility": "Private",
+        "electricityConnection": "Yes",
+        "electricityAvailabilityHours": "24",
+        "solarPanelsAvailable": "No",
+        "vehiclePetrol2Wheeler": 1,
+        "appliancesListText": "Fridge",
+        "mobileNetwork": "Jio",
+        "dthProvider": "No",
+        "drinkingWaterAvailability": "Tap Water",
+        "waterSource": "Government Pipe Water",
+        "drainageFacility": "No",
+        "povertyStatus": "APL (Income More Than ₹1 Lakh)",
+        "landOwnership": "Agricultural Land",
+        "landAreaOwned": "2.0",
+        "agriculturalInputsText": "Chemical Fertilizers",
+        "irrigationSystem": "None",
+        "agriculturalProduce": "Mangoes",
+        "cookingFuel": "LPG",
+        "memberMigrate": "No",
+        "governmentSchemesText": "Jal Jeevan Mission, MNREGA",
+        "remarks": "Drainage Facility , Water Tank",
+        "surveyDate": 1780816522041,
+        "surveyorName": "M.Naveen Kumar , M.Mahesh , B.Karthikeya"
+    },
+    "members": [
+        {
+            "householdId": 15,
+            "name": "Bhanavathu Chanti Babu",
+            "relation": "Self / Head",
+            "age": "34",
+            "gender": "Male",
+            "education": "Graduate",
+            "category": "ST",
+            "occupation": "Farmer",
+            "bankAccountStatus": "No Bank Account",
+            "healthProblems": "No",
+            "underTreatment": "No",
+            "mnregaJobCard": "Yes",
+            "contactNumber": "9398407983"
+        }
+    ]
+}

@@ -1,0 +1,57 @@
+{
+    "household": {
+        "id": 9,
+        "headName": "Azmeera Siva Prasad",
+        "mobileNumber": "9182730482",
+        "familyMembersCount": 2,
+        "houseOwnership": "Own House",
+        "houseType": "Pucca (Concrete/cement house)",
+        "toiletFacility": "Private",
+        "electricityConnection": "Yes",
+        "electricityAvailabilityHours": "24",
+        "solarPanelsAvailable": "No",
+        "vehiclePetrol2Wheeler": 1,
+        "mobileNetwork": "Jio",
+        "drinkingWaterAvailability": "Mineral Water (Buying)",
+        "waterSource": "Government Pipe Water",
+        "drainageFacility": "yes",
+        "povertyStatus": "BPL (Income ₹1 Lakh or Less)",
+        "mainIncomeSource": "Bank job",
+        "annualIncome": "50000",
+        "landOwnership": "No Land",
+        "irrigationSystem": "None",
+        "cookingFuel": "LPG",
+        "memberMigrate": "No",
+        "surveyDate": 1780816320428,
+        "surveyorName": "Chandu and Suhitha"
+    },
+    "members": [
+        {
+            "householdId": 9,
+            "name": "Azmeera Siva Prasad",
+            "relation": "Self / Head",
+            "age": "26",
+            "gender": "Male",
+            "education": "Graduate",
+            "category": "ST",
+            "bankAccountStatus": "Government Account",
+            "bankName": "IDBI",
+            "underTreatment": "No",
+            "mnregaJobCard": "No"
+        },
+        {
+            "householdId": 9,
+            "name": "Azmeera Kanka Durga",
+            "relation": "Spouse",
+            "age": "22",
+            "gender": "Female",
+            "education": "Graduate",
+            "category": "ST",
+            "occupation": "House wife",
+            "bankAccountStatus": "Government Account",
+            "bankName": "IDBI",
+            "underTreatment": "No",
+            "mnregaJobCard": "No"
+        }
+    ]
+}

@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kanimerala Village Portal | UBA Rural Intelligence & Analytics</title>
+  <meta name="description" content="Official Unnat Bharat Abhiyan (UBA) Rural Development Portal and Household Survey Analytics for Kanimerala Village, Mylavaram Mandal, NTR District, Andhra Pradesh.">
+  <meta name="keywords" content="Kanimerala, Kanimerla, Mylavaram, NTR District, Andhra Pradesh, Unnat Bharat Abhiyan, UBA, Village Survey, Rural Development, Demographics">
+  <meta name="author" content="Unnat Bharat Abhiyan (UBA) Participating Institution">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <div class="brand-container">
+        <img src="assets/favicon.svg" alt="Kanimerala Village Emblem" class="brand-logo">
+        <div class="brand-title">
+          <h1>
+            Kanimerala Village
+            <span class="telugu-title">కనిమెరల గ్రామ సమాచారం</span>
+          </h1>
+          <div class="brand-subtitle">
+            Unnat Bharat Abhiyan (UBA) • Mylavaram Mandal • NTR District, AP • PIN 521230
+          </div>
+        </div>
+        <div class="header-badges">
+          <span class="badge badge-uba">UBA Flagship Portal</span>
+          <span class="badge badge-district">NTR District</span>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <button id="themeToggleBtn" class="btn-icon" aria-label="Toggle dark/light theme" title="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+        <button id="exportHhCsvBtn" class="btn-outline" title="Download survey data in CSV format">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Export CSV
+        </button>
+        <button id="printReportBtn" class="btn-primary" title="Print or save as PDF">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          Print Report
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Tabs -->
+  <nav class="nav-tabs-wrapper" role="navigation" aria-label="Main Navigation">
+    <div class="nav-tabs">
+      <button class="nav-tab active" data-tab="overview">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+        Overview (సమీక్ష)
+      </button>
+      <button class="nav-tab" data-tab="directory">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        Household Directory (గృహాలు)
+      </button>
+      <button class="nav-tab" data-tab="demographics">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+        Demographics (జనాభా)
+      </button>
+      <button class="nav-tab" data-tab="agriculture">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg>
+        Agriculture & Economy (వ్యవసాయం)
+      </button>
+      <button class="nav-tab" data-tab="infrastructure">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        Water & Living Conditions (మౌలిక వసతులు)
+      </button>
+      <button class="nav-tab" data-tab="schemes">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+        Welfare Schemes (సంక్షేమం)
+      </button>
+      <button class="nav-tab" data-tab="health">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+        Health Profile (ఆరోగ్యం)
+      </button>
+      <button class="nav-tab" data-tab="grievances">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        Citizen Grievances (సమస్యలు)
+      </button>
+      <button class="nav-tab" data-tab="vdp">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        Village Development Plan (VDP)
+      </button>
+      <button class="nav-tab" data-tab="survey">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+        Survey Metadata (సర్వే బృందం)
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Content Body -->
+  <main class="main-content" role="main">
+
+    <!-- ========================================================= -->
+    <!-- TAB 1: OVERVIEW & EXECUTIVE DASHBOARD -->
+    <!-- ========================================================= -->
+    <section id="tab-overview" class="tab-panel active">
+      
+      <!-- Hero Banner -->
+      <div class="hero-banner">
+        <div class="hero-content">
+          <h2 style="font-size: 1.85rem; margin-bottom: 0.5rem; font-weight: 800;">
+            Kanimerala Village Baseline Survey & Development Intelligence
+          </h2>
+          <p style="font-size: 1rem; color: var(--text-secondary); max-width: 860px; line-height: 1.6;">
+            A comprehensive socio-economic, infrastructural, agricultural, and demographic baseline survey of <strong>49 households (140 residents)</strong> in Kanimerala (Kanimerla), Mylavaram Mandal, NTR District, Andhra Pradesh, conducted under the national <strong>Unnat Bharat Abhiyan (UBA)</strong> initiative.
+          </p>
+          <div class="hero-meta">
+            <div class="hero-meta-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              Mylavaram Mandal, NTR District, Andhra Pradesh (521230)
+            </div>
+            <div class="hero-meta-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              Field Survey Date: June 7, 2026
+            </div>
+            <div class="hero-meta-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              Mango Horticulture Hub & Banjara Community
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- High Priority Alert Banner -->
+      <div class="priority-alert-box">
+        <svg class="priority-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+        <div class="priority-content">
+          <h4>Top 3 Critical Community Action Alerts</h4>
+          <p>
+            <strong>1. Acute Drainage Deficit:</strong> 67.3% of households report no underground or covered drainage, causing stagnant wastewater, severe foul odors, and mosquito infestations.<br>
+            <strong>2. Clean Drinking Water Quality:</strong> While 89.8% have piped tap access, 46.9% are forced to purchase commercial 20L RO mineral water cans due to salinity and taste concerns. Repeated demand for an Overhead Water Storage Tank (OHT).<br>
+            <strong>3. Public Transport & RTC Bus Isolation:</strong> Lack of direct APSRTC bus connectivity connecting Kanimerala to Mylavaram (16 km) and Nuzvid (24 km), hindering student schooling and medical emergencies.
+          </p>
+        </div>
+      </div>
+
+      <!-- Key Metric Indicator Cards Grid -->
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-title">Households</span>
+            <div class="kpi-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+            </div>
+          </div>
+          <div class="kpi-value">49</div>
+          <div class="kpi-caption">100% census surveyed</div>
+        </div>
+
+        <div class="kpi-card info">
+          <div class="kpi-header">
+            <span class="kpi-title">Population</span>
+            <div class="kpi-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+            </div>
+          </div>
+          <div class="kpi-value">140</div>
+          <div class="kpi-caption">73 Females (52.1%) • 67 Males</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-title">Tribal Fabric (ST)</span>
+            <div class="kpi-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path></svg>
+            </div>
+          </div>
+          <div class="kpi-value">85.7%</div>
+          <div class="kpi-caption">120 Banjara / Sugali members</div>
+        </div>
+
+        <div class="kpi-card warning">
+          <div class="kpi-header">
+            <span class="kpi-title">BPL Families</span>
+            <div class="kpi-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            </div>
+          </div>
+          <div class="kpi-value">51.0%</div>
+          <div class="kpi-caption">25 Households ≤ ₹1 Lakh income</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-title">Pucca Housing</span>
+            <div class="kpi-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"></rect></svg>
+            </div>
+          </div>
+          <div class="kpi-value">93.9%</div>
+          <div class="kpi-caption">46 Concrete/Pucca homes</div>
+        </div>
+
+        <div class="kpi-card alert">
+          <div class="kpi-header">
+            <span class="kpi-title">Drainage Deficit</span>
+            <div class="kpi-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path></svg>
+            </div>
+          </div>
+          <div class="kpi-value">67.3%</div>
+          <div class="kpi-caption">33 Homes face wastewater crisis</div>
+        </div>
+
+        <div class="kpi-card purple">
+          <div class="kpi-header">
+            <span class="kpi-title">Buying RO Cans</span>
+            <div class="kpi-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+            </div>
+          </div>
+          <div class="kpi-value">46.9%</div>
+          <div class="kpi-caption">23 Households pay for mineral water</div>
+        </div>
+
+        <div class="kpi-card alert">
+          <div class="kpi-header">
+            <span class="kpi-title">MNREGA Card Gap</span>
+            <div class="kpi-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"></rect><line x1="7" y1="8" x2="17" y2="8"></line></svg>
+            </div>
+          </div>
+          <div class="kpi-value">79.3%</div>
+          <div class="kpi-caption">111 / 140 members lack job cards</div>
+        </div>
+      </div>
+
+      <!-- Visual Charts Summary Grid -->
+      <div class="dashboard-grid-2col">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">Social Category Composition</h3>
+              <span class="card-subtitle">Distribution across ST, BC, SC, and OC communities</span>
+            </div>
+          </div>
+          <div class="chart-container">
+            <canvas id="chartCategory"></canvas>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">Age Group Demographics</h3>
+              <span class="card-subtitle">Village population structure by life stage</span>
+            </div>
+          </div>
+          <div class="chart-container">
+            <canvas id="chartAgeGroups"></canvas>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- TAB 2: HOUSEHOLD DIRECTORY & SEARCH -->
+    <!-- ========================================================= -->
+    <section id="tab-directory" class="tab-panel">
+      <div class="section-header">
+        <div>
+          <h2>Household Directory & Citizen Register (గృహాల జాబితా)</h2>
+          <p>Search, filter, and inspect detailed profiles of all 49 surveyed households in Kanimerala.</p>
+        </div>
+        <div id="resultsCount" style="font-size: 0.9rem; font-weight: 700; color: var(--primary-400);">
+          49 Households
+        </div>
+      </div>
+
+      <!-- Filters & Search Toolbar -->
+      <div class="toolbar-container">
+        <div class="search-box-wrapper">
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="hhSearchInput" class="search-input" placeholder="Search by Head Name, Member, Phone, ID, Crop...">
+        </div>
+
+        <div class="filter-group">
+          <select id="filterCategory" class="select-filter" aria-label="Filter by Category">
+            <option value="all">All Categories (ST, BC, SC, OC)</option>
+            <option value="ST">ST (Scheduled Tribe)</option>
+            <option value="BC">BC (Backward Class)</option>
+            <option value="SC">SC (Scheduled Caste)</option>
+            <option value="OC">OC (Open Category)</option>
+          </select>
+
+          <select id="filterPoverty" class="select-filter" aria-label="Filter by Poverty Status">
+            <option value="all">All Income Statuses</option>
+            <option value="BPL">BPL (≤ ₹1 Lakh)</option>
+            <option value="APL">APL (> ₹1 Lakh)</option>
+          </select>
+
+          <select id="filterDrainage" class="select-filter" aria-label="Filter by Drainage">
+            <option value="all">All Drainage Statuses</option>
+            <option value="deficit">Drainage Deficit / Issues</option>
+            <option value="adequate">Adequate Drainage</option>
+          </select>
+
+          <select id="filterGrievance" class="select-filter" aria-label="Filter by Grievance">
+            <option value="all">All Remarks</option>
+            <option value="yes">Has Active Grievance</option>
+            <option value="no">No Grievance Noted</option>
+          </select>
+
+          <div class="view-toggle">
+            <button id="viewGridBtn" class="view-toggle-btn active" title="Grid View">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            </button>
+            <button id="viewTableBtn" class="view-toggle-btn" title="Table View">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Container for dynamic cards or table -->
+      <div id="householdsContainer" class="household-grid"></div>
+
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- TAB 3: DEMOGRAPHICS & SOCIAL FABRIC -->
+    <!-- ========================================================= -->
+    <section id="tab-demographics" class="tab-panel">
+      <div class="section-header">
+        <div>
+          <h2>Demographic & Educational Landscape (జనాభా & విద్య)</h2>
+          <p>Analysis of community identity, age pyramid, sex ratio, and literacy patterns in Kanimerala.</p>
+        </div>
+      </div>
+
+      <div class="dashboard-grid-3col">
+        <div class="kpi-card info">
+          <div class="kpi-header">
+            <span class="kpi-title">Sex Ratio</span>
+            <div class="kpi-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            </div>
+          </div>
+          <div class="kpi-value">1,090</div>
+          <div class="kpi-caption">Females per 1,000 Males (Above State avg)</div>
+        </div>
+
+        <div class="kpi-card warning">
+          <div class="kpi-header">
+            <span class="kpi-title">Adult Illiteracy</span>
+            <div class="kpi-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            </div>
+          </div>
+          <div class="kpi-value">56.4%</div>
+          <div class="kpi-caption">79 out of 140 members (predominantly elders)</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-title">Graduates / Youth</span>
+            <div class="kpi-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+            </div>
+          </div>
+          <div class="kpi-value">17.9%</div>
+          <div class="kpi-caption">25 Degree Graduates emerging from the Thanda</div>
+        </div>
+      </div>
+
+      <div class="dashboard-grid-2col">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">Educational Attainment Spectrum</h3>
+              <span class="card-subtitle">Showing generational transition from illiteracy to university graduation</span>
+            </div>
+          </div>
+          <div class="chart-container">
+            <canvas id="chartEducation"></canvas>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">Tribal & Caste Distribution</h3>
+              <span class="card-subtitle">85.7% Banjara Sugali (ST), 10% BC, 2.1% SC, 2.1% OC</span>
+            </div>
+          </div>
+          <div class="chart-container">
+            <div style="padding: 1rem; font-size: 0.88rem; line-height: 1.6; color: var(--text-secondary);">
+              <p>
+                <strong>Banjara / Sugali Heritage:</strong> The overwhelming majority of Kanimerala's residents belong to the Scheduled Tribe (ST) Lambadi/Banjara community, identifiable by lineage surnames: <em>Banavathu, Azmeera, Lavuri, Bhukya, Rupavathu, and Guggulothu</em>.
+              </p>
+              <br>
+              <p>
+                <strong>Generational Education Shift:</strong> While 79 older residents received no formal schooling, 25 young men and women have earned Graduate degrees, and 24 have cleared Intermediate/Secondary school. This demographic represents high potential for digital literacy and agro-tech training.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- TAB 4: AGRICULTURE & LIVELIHOOD ECONOMY -->
+    <!-- ========================================================= -->
+    <section id="tab-agriculture" class="tab-panel">
+      <div class="section-header">
+        <div>
+          <h2>Agriculture & Livelihood Economy (వ్యవసాయం & ఆర్థికం)</h2>
+          <p>Horticultural backbone, crop patterns, irrigation infrastructure, and livestock assets.</p>
+        </div>
+      </div>
+
+      <div class="dashboard-grid-3col">
+        <div class="kpi-card warning">
+          <div class="kpi-header">
+            <span class="kpi-title">Primary Crop</span>
+            <div class="kpi-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            </div>
+          </div>
+          <div class="kpi-value">Mango (మామిడి)</div>
+          <div class="kpi-caption">Reported in >85% of cultivating farms</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-title">Irrigation Source</span>
+            <div class="kpi-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+            </div>
+          </div>
+          <div class="kpi-value">Borewells</div>
+          <div class="kpi-caption">Heavy reliance on groundwater extraction</div>
+        </div>
+
+        <div class="kpi-card info">
+          <div class="kpi-header">
+            <span class="kpi-title">Livestock</span>
+            <div class="kpi-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10H12V2z"></path></svg>
+            </div>
+          </div>
+          <div class="kpi-value">Buffaloes & Cows</div>
+          <div class="kpi-caption">Subsidiary milk and agricultural traction</div>
+        </div>
+      </div>
+
+      <div class="dashboard-grid-2col">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">Major Agricultural Produces</h3>
+              <span class="card-subtitle">Farming households reporting specific crops</span>
+            </div>
+          </div>
+          <div class="chart-container">
+            <canvas id="chartCrops"></canvas>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">Agrarian Challenges & Inputs</h3>
+              <span class="card-subtitle">Fertilizer, land titles, and price realization</span>
+            </div>
+          </div>
+          <div style="font-size: 0.88rem; line-height: 1.6; color: var(--text-secondary);">
+            <ul style="padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.75rem;">
+              <li><strong>Chemical Dependency:</strong> Over 90% of cultivating farmers utilize Chemical Fertilizers, Pesticides, and Weedicides, escalating input costs and diminishing soil microbiome.</li>
+              <li><strong>Land Title Issues ("Paatalu Problem"):</strong> Several farmers cultivate land without official <em>Pattadar Passbooks</em> or land deeds, barring them from institutional credit and insurance claims.</li>
+              <li><strong>Borewell Depletion:</strong> Multiple residents reported drying borewells and fluctuating voltage affecting agricultural pumps.</li>
+              <li><strong>Mango Post-Harvest Loss:</strong> In the absence of a cold storage or processing unit in Mylavaram, farmers are vulnerable to middleman price swings.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- TAB 5: WATER & LIVING CONDITIONS -->
+    <!-- ========================================================= -->
+    <section id="tab-infrastructure" class="tab-panel">
+      <div class="section-header">
+        <div>
+          <h2>Water, Sanitation & Living Conditions (మౌలిక వసతులు)</h2>
+          <p>Critical diagnostics on drinking water safety, drainage crisis, electricity, and clean cooking.</p>
+        </div>
+      </div>
+
+      <div class="dashboard-grid-2col">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">The Drainage Crisis (డ్రైనేజీ సమస్య)</h3>
+              <span class="card-subtitle">67.3% of homes suffer from lack of wastewater drainage</span>
+            </div>
+          </div>
+          <div class="chart-container">
+            <canvas id="chartDrainage"></canvas>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">Drinking Water Reality</h3>
+              <span class="card-subtitle">Piped tap water vs Commercial RO mineral cans</span>
+            </div>
+          </div>
+          <div class="chart-container">
+            <canvas id="chartWater"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top: 1.5rem;">
+        <div class="card-header">
+          <div class="card-title-group">
+            <h3 class="card-title">Infrastructure Snapshot: Energy, Cooking & Sanitation</h3>
+            <span class="card-subtitle">Key achievements vs ongoing deficits in Kanimerala</span>
+          </div>
+        </div>
+        <div class="dashboard-grid-3col" style="margin-bottom: 0;">
+          <div style="background: var(--bg-surface-elevated); padding: 1.25rem; border-radius: var(--radius-md);">
+            <h4 style="color: var(--primary-400); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+              100% Grid Power (0% Solar)
+            </h4>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">
+              All 49 households have active electricity connections (averaging 24 hrs reported). However, exactly <strong>0% have solar rooftop panels</strong>, presenting a major opportunity for PM Surya Ghar scheme adoption.
+            </p>
+          </div>
+
+          <div style="background: var(--bg-surface-elevated); padding: 1.25rem; border-radius: var(--radius-md);">
+            <h4 style="color: var(--primary-400); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
+              100% LPG Cooking Fuel
+            </h4>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">
+              All surveyed households report using LPG cylinders for primary cooking, reflecting strong penetration of the Pradhan Mantri Ujjwala Yojana and Deepam schemes.
+            </p>
+          </div>
+
+          <div style="background: var(--bg-surface-elevated); padding: 1.25rem; border-radius: var(--radius-md);">
+            <h4 style="color: var(--accent-cyan); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>
+              Digital Telecom Footprint
+            </h4>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">
+              Mobile telecom access is split between <strong>Reliance Jio (75.5%)</strong> and <strong>Bharti Airtel (24.5%)</strong>, providing baseline 4G internet connectivity to smartphones.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- TAB 6: WELFARE SCHEMES & GAPS -->
+    <!-- ========================================================= -->
+    <section id="tab-schemes" class="tab-panel">
+      <div class="section-header">
+        <div>
+          <h2>Government Welfare Schemes & Inclusion Gaps (ప్రభుత్వ పథకాలు)</h2>
+          <p>Evaluating state & central scheme coverage and identifying underserved beneficiaries.</p>
+        </div>
+      </div>
+
+      <div class="dashboard-grid-2col">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">Key Scheme Beneficiaries</h3>
+              <span class="card-subtitle">PM-KISAN, Jal Jeevan Mission, Ration, Pensions, Rythu Bharosa</span>
+            </div>
+          </div>
+          <div class="chart-container">
+            <canvas id="chartSchemes"></canvas>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">Critical Gaps & Exclusions</h3>
+              <span class="card-subtitle">Where government intervention is urgently demanded</span>
+            </div>
+          </div>
+          <div style="font-size: 0.88rem; line-height: 1.6; color: var(--text-secondary); display: flex; flex-direction: column; gap: 1rem;">
+            <div style="background: rgba(244, 63, 94, 0.08); padding: 1rem; border-radius: var(--radius-md); border-left: 3px solid var(--accent-rose);">
+              <h4 style="color: var(--accent-rose); font-size: 0.95rem; margin-bottom: 0.25rem;">MNREGA Job Card Deficit (79.3% Excluded)</h4>
+              <p style="font-size: 0.82rem;">
+                Only 29 out of 140 individuals hold active MNREGA Job Cards. 111 individuals—including agricultural laborers and coolies—are deprived of guaranteed 100 days wage employment.
+              </p>
+            </div>
+
+            <div style="background: rgba(245, 158, 11, 0.08); padding: 1rem; border-radius: var(--radius-md); border-left: 3px solid var(--accent-amber);">
+              <h4 style="color: var(--accent-amber); font-size: 0.95rem; margin-bottom: 0.25rem;">Banking Exclusion (48.6% Unbanked)</h4>
+              <p style="font-size: 0.82rem;">
+                68 out of 140 individuals do not have a bank account. Only 66 hold government accounts (primarily SBI & Union Bank of India). Financial literacy and PMJDY camp required.
+              </p>
+            </div>
+
+            <div style="background: rgba(99, 102, 241, 0.08); padding: 1rem; border-radius: var(--radius-md); border-left: 3px solid var(--accent-indigo);">
+              <h4 style="color: var(--accent-indigo); font-size: 0.95rem; margin-bottom: 0.25rem;">Pension Grievances ("No Pention")</h4>
+              <p style="font-size: 0.82rem;">
+                Elderly citizens reported being denied old age or widow pensions due to documentation discrepancies or portal ineligibility ("A government schemes eligible cheyyatledhu").
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- TAB 7: HEALTH PROFILE -->
+    <!-- ========================================================= -->
+    <section id="tab-health" class="tab-panel">
+      <div class="section-header">
+        <div>
+          <h2>Community Health Profile & Disease Burden (ఆరోగ్య స్థితి)</h2>
+          <p>Morbidity trends, chronic disease prevalence, and physical health challenges in Kanimerala.</p>
+        </div>
+      </div>
+
+      <div class="dashboard-grid-2col">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">Prevalence of Reported Health Ailments</h3>
+              <span class="card-subtitle">Hypertension, diabetes, orthopedic pain, and cardiovascular issues</span>
+            </div>
+          </div>
+          <div class="chart-container">
+            <canvas id="chartHealth"></canvas>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">Healthcare Access Diagnosis</h3>
+              <span class="card-subtitle">Distance to medical centers and critical needs</span>
+            </div>
+          </div>
+          <div style="font-size: 0.88rem; line-height: 1.6; color: var(--text-secondary); display: flex; flex-direction: column; gap: 0.85rem;">
+            <p>
+              <strong>1. No Village Clinic / PHC:</strong> The survey records: <em>"no government hospital facilities"</em> in the village. Residents must travel 16 km to Mylavaram Community Health Centre (CHC) or 24 km to Nuzvid Area Hospital.
+            </p>
+            <p>
+              <strong>2. High Chronic NCD Burden:</strong> High rates of Hypertension (BP) and Diabetes (Sugar) without regular screening or medication supply, leading to severe outcomes like brain strokes and paralysis in elders.
+            </p>
+            <p>
+              <strong>3. Occupational Musculoskeletal Stress:</strong> Farmers and manual coolie laborers suffer widespread knee pain, back pain, and joint deterioration from agricultural stoop work.
+            </p>
+            <p>
+              <strong>4. School Nutrition Flagged:</strong> A surveyor note explicitly highlights: <em>"food problem in schools"</em>, requiring inspection of Mid-Day Meal (Jagananna Gorumudda) quality in the local primary school.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- TAB 8: CITIZEN GRIEVANCES MATRIX -->
+    <!-- ========================================================= -->
+    <section id="tab-grievances" class="tab-panel">
+      <div class="section-header">
+        <div>
+          <h2>Voice of Citizens: Grievance Matrix (గ్రామ సమస్యలు & ప్రజాభిప్రాయం)</h2>
+          <p>Direct verbatim field remarks and petitions submitted by village residents during the UBA survey.</p>
+        </div>
+      </div>
+
+      <div id="grievanceCardsContainer" class="grievance-cards-list"></div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- TAB 9: VILLAGE DEVELOPMENT PLAN (VDP) -->
+    <!-- ========================================================= -->
+    <section id="tab-vdp" class="tab-panel">
+      <div class="section-header">
+        <div>
+          <h2>Comprehensive Village Development Plan (VDP) (గ్రామ అభివృద్ధి ప్రణాళిక)</h2>
+          <p>Actionable, phased roadmap for Gram Panchayat, UBA Institute, and NTR District Administration.</p>
+        </div>
+      </div>
+
+      <div class="roadmap-timeline">
+        <!-- Phase 1 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-phase">Phase 1: Immediate Interventions (0 - 6 Months)</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem;">Sanitation, Clean Water & Welfare Enrolment</h3>
+            <div class="action-pill-list">
+              <div class="action-pill-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Emergency Drain Desilting & Mosquito Fogging:</strong> Clean existing clogged open drains to halt wastewater stagnant pools and combat vector-borne illnesses.</span>
+              </div>
+              <div class="action-pill-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Jal Jeevan Mission (JJM) RO Plant Assessment:</strong> Commission community water treatment unit / overhead storage tank (OHT) so 47% of families do not need to buy private water cans.</span>
+              </div>
+              <div class="action-pill-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Special Grama Ward Sachivalayam Camp:</strong> Issue MNREGA Job Cards for the 111 uncarded members and resolve rejected pension applications for elders.</span>
+              </div>
+              <div class="action-pill-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Zero-Balance Bank Account Drive (PMJDY):</strong> Partner with SBI/Union Bank Mylavaram branch to open accounts for 68 unbanked members.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phase 2 -->
+        <div class="timeline-item">
+          <div class="timeline-dot" style="background: var(--accent-amber); box-shadow: 0 0 0 2px var(--accent-amber);"></div>
+          <div class="timeline-content">
+            <div class="timeline-phase" style="color: var(--accent-amber);">Phase 2: Medium-Term Upgrades (6 - 12 Months)</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem;">Infrastructure, Transport & Health Camps</h3>
+            <div class="action-pill-list">
+              <div class="action-pill-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>APSRTC Bus Route Request:</strong> Submit petition to APSRTC NTR District Division to schedule morning and evening bus services through Kanimerala to Mylavaram and Nuzvid.</span>
+              </div>
+              <div class="action-pill-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Concrete CC Road & Covered Drainage Network:</strong> Propose covered storm-water drainage and internal CC roads under MGNREGA / Panchayat Raj Engineering funds.</span>
+              </div>
+              <div class="action-pill-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Monthly Mobile Medical Unit (104 Service):</strong> Regular NCD screening for Hypertension and Diabetes with free medicine dispensing in the Thanda.</span>
+              </div>
+              <div class="action-pill-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Revenue Patta Passbook Adalat:</strong> Coordinate with Mylavaram Tahsildar for verification of tribal land records ("Paatalu") and housing colony allocations.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phase 3 -->
+        <div class="timeline-item">
+          <div class="timeline-dot" style="background: var(--accent-cyan); box-shadow: 0 0 0 2px var(--accent-cyan);"></div>
+          <div class="timeline-content">
+            <div class="timeline-phase" style="color: var(--accent-cyan);">Phase 3: Long-Term Transformation (1 - 3 Years)</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem;">Horticulture Value-Addition & Solar Energy</h3>
+            <div class="action-pill-list">
+              <div class="action-pill-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Mango Farmer Producer Organization (FPO):</strong> Form a cooperative for Kanimerala mango growers to bypass middlemen and establish direct linkage with fruit processing units.</span>
+              </div>
+              <div class="action-pill-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>PM Surya Ghar Muft Bijli Yojana (Solar Rooftops):</strong> Transition households from 0% solar to rooftop solar grid-tie systems, generating green energy credits.</span>
+              </div>
+              <div class="action-pill-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Youth Skill & Digital Centre:</strong> Leverage the 25 educated graduates in Kanimerala to run a community digital library, competitive exam coaching, and e-governance service desk.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- TAB 10: SURVEY METADATA & TEAM CREDITS -->
+    <!-- ========================================================= -->
+    <section id="tab-survey" class="tab-panel">
+      <div class="section-header">
+        <div>
+          <h2>UBA Field Survey Methodology & Teams (సర్వే బృందం)</h2>
+          <p>Survey documentation, student enumerator teams, and data provenance.</p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <h3 style="font-size: 1.15rem; margin-bottom: 0.75rem;">Survey Overview</h3>
+        <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">
+          The household survey for Kanimerala village was conducted by trained student enumerator teams under the Unnat Bharat Abhiyan (UBA) participating institution on <strong>June 7, 2026</strong>. 
+          A total of 49 household questionnaires were digitally documented, capturing granular information on demographics, family composition, socio-economics, assets, housing, water, power, welfare schemes, and public grievances.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3 style="font-size: 1.15rem; margin-bottom: 1rem;">Surveyor Teams & Records Processed</h3>
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Surveyor Team</th>
+                <th>Households Surveyed</th>
+                <th>Batch Files Processed</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Chandu and Suhitha</td><td>6</td><td>uba_survey_10, 11, 14, 15, 16, 17</td></tr>
+              <tr><td>Praneetha and Vikas</td><td>7</td><td>uba_survey_21, 22, 23, 24, 25, etc.</td></tr>
+              <tr><td>M. Naveen Kumar, M. Mahesh, B. Karthikeya</td><td>8</td><td>uba_survey_12, 13, 14, 15, 16</td></tr>
+              <tr><td>Bolu Kishore and Seetha Ram Reddy</td><td>6</td><td>uba_survey_2, 3, 4, 18</td></tr>
+              <tr><td>Mahendra Vasu</td><td>6</td><td>uba_survey_6, 7, 8, 9, 20</td></tr>
+              <tr><td>V Aravind</td><td>4</td><td>uba_survey_19, 20</td></tr>
+              <tr><td>Thanmayee and Vinay</td><td>3</td><td>uba_survey_1, 2, 3</td></tr>
+              <tr><td>Hardik Gupta</td><td>3</td><td>uba_survey_13, 14, 15</td></tr>
+              <tr><td>CH. Bala Murali Sriram, K. Praneeth</td><td>3</td><td>uba_survey_4, 5, 6</td></tr>
+              <tr><td>T Reshma Laxmi</td><td>2</td><td>uba_survey_16, 17</td></tr>
+              <tr><td>Shreyamsi</td><td>2</td><td>uba_survey_18, 19</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div style="margin-top: 1.5rem; display: flex; gap: 1rem;">
+        <button id="exportMembersCsvBtn" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Export 140 Members Population Census CSV
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Household Detail Modal -->
+  <div id="householdModalOverlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div>
+          <h3 id="modalTitle" style="font-size: 1.25rem; font-weight: 800;">Household Details</h3>
+          <div id="modalSubtitle" style="font-size: 0.8rem; color: var(--text-secondary);">Code • Ownership • Status</div>
+        </div>
+        <button id="modalCloseBtn" class="btn-icon" aria-label="Close modal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div id="modalBody" class="modal-body">
+        <!-- Injected via app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-credits">
+        <strong>Kanimerala (Kanimerla) Village Rural Analytics Portal</strong>
+        <span>Mylavaram Mandal, NTR District, Andhra Pradesh • PIN 521230</span>
+        <span style="font-size: 0.78rem; color: var(--text-tertiary);">Developed in alignment with Unnat Bharat Abhiyan (UBA), Ministry of Education, Government of India.</span>
+      </div>
+      <div>
+        <span class="badge badge-uba">49 Households • 140 Population</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

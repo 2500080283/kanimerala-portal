@@ -1,0 +1,47 @@
+{
+    "household": {
+        "id": 3,
+        "headName": "dharavathu padma",
+        "mobileNumber": "7780733685",
+        "familyMembersCount": 2,
+        "houseOwnership": "Own House",
+        "houseType": "Pucca (Concrete/cement house)",
+        "toiletFacility": "Private",
+        "electricityConnection": "Yes",
+        "solarPanelsAvailable": "No",
+        "vehiclePetrol2Wheeler": 1,
+        "appliancesListText": "Fridge, TV",
+        "mobileNetwork": "Jio",
+        "dthProvider": "sundirect dish",
+        "drinkingWaterAvailability": "Mineral Water (Buying)",
+        "waterSource": "Government Pipe Water",
+        "drainageFacility": "no",
+        "povertyStatus": "APL (Income More Than ₹1 Lakh)",
+        "mainIncomeSource": "tailoring work",
+        "annualIncome": "1,00,000",
+        "landOwnership": "No Land",
+        "irrigationSystem": "None",
+        "cookingFuel": "LPG",
+        "memberMigrate": "No",
+        "governmentSchemesText": "MNREGA, colony allotment and the land allocation is required",
+        "remarks": "many problems regarding the schemes and finance",
+        "surveyDate": 1780817880114,
+        "surveyorName": "B.kartikeya,M.mahesh,M.naveen"
+    },
+    "members": [
+        {
+            "householdId": 3,
+            "name": "dhanavathu padma",
+            "relation": "Self / Head",
+            "age": "39",
+            "gender": "Female",
+            "education": "Illiterate",
+            "category": "ST",
+            "bankAccountStatus": "Government Account",
+            "bankName": "Union Bank of India",
+            "aadhaarNumber": "840680721702",
+            "underTreatment": "No",
+            "mnregaJobCard": "No"
+        }
+    ]
+}

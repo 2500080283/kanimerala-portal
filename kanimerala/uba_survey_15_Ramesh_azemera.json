@@ -1,0 +1,44 @@
+{
+    "household": {
+        "id": 15,
+        "headName": "Ramesh azemera",
+        "familyMembersCount": 4,
+        "houseOwnership": "Own House",
+        "houseType": "Pucca (Concrete/cement house)",
+        "toiletFacility": "Private",
+        "electricityConnection": "Yes",
+        "solarPanelsAvailable": "No",
+        "vehiclePetrol2Wheeler": 1,
+        "appliancesListText": "TV",
+        "mobileNetwork": "Airtel",
+        "drinkingWaterAvailability": "Tap Water",
+        "waterSource": "Government Pipe Water",
+        "povertyStatus": "APL (Income More Than ₹1 Lakh)",
+        "landOwnership": "No Land",
+        "irrigationSystem": "None",
+        "agriculturalProduce": "paddy",
+        "livestockDetails": "nothing",
+        "cookingFuel": "LPG",
+        "memberMigrate": "No",
+        "governmentSchemesText": "pension",
+        "remarks": "no proper drainage facilities. \nno proper road facilities.",
+        "surveyDate": 1780818280594,
+        "surveyorName": "bollu kishore and seetha ram reddy"
+    },
+    "members": [
+        {
+            "householdId": 15,
+            "name": "ramesh azemera",
+            "relation": "Self / Head",
+            "age": "45",
+            "gender": "Male",
+            "education": "Illiterate",
+            "category": "ST",
+            "occupation": "farming",
+            "bankAccountStatus": "Government Account",
+            "bankName": "State Bank of India (SBI)",
+            "underTreatment": "No",
+            "mnregaJobCard": "No"
+        }
+    ]
+}

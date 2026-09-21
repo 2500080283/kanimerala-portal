@@ -1,0 +1,44 @@
+{
+    "household": {
+        "id": 14,
+        "headName": "kusha ajemera",
+        "familyMembersCount": 3,
+        "houseOwnership": "Own House",
+        "houseType": "Pucca (Concrete/cement house)",
+        "toiletFacility": "Private",
+        "electricityConnection": "Yes",
+        "solarPanelsAvailable": "No",
+        "vehiclePetrol2Wheeler": 1,
+        "appliancesListText": "Fridge, TV",
+        "mobileNetwork": "Airtel",
+        "drinkingWaterAvailability": "Tap Water",
+        "waterSource": "Government Pipe Water",
+        "povertyStatus": "APL (Income More Than ₹1 Lakh)",
+        "landOwnership": "No Land",
+        "irrigationSystem": "None",
+        "agriculturalProduce": "farming",
+        "cookingFuel": "LPG",
+        "memberMigrate": "No",
+        "governmentSchemesText": "pension",
+        "remarks": "no proper road facilities",
+        "surveyDate": 1780816956763,
+        "surveyorName": "bolu kishore and seetha ram reddy"
+    },
+    "members": [
+        {
+            "householdId": 14,
+            "name": "kusha ajemera",
+            "relation": "Self / Head",
+            "age": "45",
+            "gender": "Female",
+            "education": "Illiterate",
+            "category": "ST",
+            "occupation": "farming",
+            "bankAccountStatus": "Government Account",
+            "bankName": "State Bank of India (SBI)",
+            "healthProblems": "no",
+            "underTreatment": "No",
+            "mnregaJobCard": "No"
+        }
+    ]
+}

@@ -1,0 +1,40 @@
+{
+    "household": {
+        "id": 18,
+        "headName": "Peena bhukya",
+        "familyMembersCount": 4,
+        "houseOwnership": "Own House",
+        "houseType": "Pucca (Concrete/cement house)",
+        "toiletFacility": "Private",
+        "electricityConnection": "Yes",
+        "solarPanelsAvailable": "No",
+        "vehiclePetrol2Wheeler": 1,
+        "appliancesListText": "TV",
+        "mobileNetwork": "Airtel",
+        "drinkingWaterAvailability": "Tap Water",
+        "waterSource": "Government Pipe Water",
+        "povertyStatus": "APL (Income More Than ₹1 Lakh)",
+        "landOwnership": "No Land",
+        "irrigationSystem": "None",
+        "agriculturalProduce": "paddy",
+        "cookingFuel": "LPG",
+        "memberMigrate": "No",
+        "governmentSchemesText": "amma vadi",
+        "surveyDate": 1780819687152,
+        "surveyorName": "kishore,seetharam"
+    },
+    "members": [
+        {
+            "householdId": 18,
+            "name": "peena bukya",
+            "relation": "Father",
+            "age": "43",
+            "gender": "Male",
+            "education": "Illiterate",
+            "category": "OC",
+            "bankAccountStatus": "No Bank Account",
+            "underTreatment": "No",
+            "mnregaJobCard": "No"
+        }
+    ]
+}

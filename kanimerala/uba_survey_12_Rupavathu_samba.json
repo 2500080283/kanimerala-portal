@@ -1,0 +1,49 @@
+{
+    "household": {
+        "id": 12,
+        "headName": "Rupavathu samba",
+        "mobileNumber": "8639014888",
+        "familyMembersCount": 4,
+        "houseOwnership": "Own House",
+        "houseType": "Pucca (Concrete/cement house)",
+        "toiletFacility": "Private",
+        "electricityConnection": "Yes",
+        "electricityAvailabilityHours": "24",
+        "solarPanelsAvailable": "No",
+        "vehiclePetrol2Wheeler": 1,
+        "appliancesListText": "Fridge, AC, TV",
+        "mobileNetwork": "Jio",
+        "dthProvider": "Citi Cable",
+        "drinkingWaterAvailability": "Tap Water",
+        "waterSource": "Government Pipe Water",
+        "drainageFacility": "No",
+        "povertyStatus": "APL (Income More Than ₹1 Lakh)",
+        "landOwnership": "No Land",
+        "irrigationSystem": "None",
+        "cookingFuel": "LPG",
+        "memberMigrate": "No",
+        "governmentSchemesText": "Jal Jeevan Mission, MNREGA",
+        "remarks": "they need water tank in their village and proper roads \n(A government schemes eligible cheyyatledhu",
+        "surveyDate": 1780814622490,
+        "surveyorName": "M.Naveen Kumar , M.Mahesh , B.karthikeya"
+    },
+    "members": [
+        {
+            "householdId": 12,
+            "name": "Rupavathu Samba",
+            "relation": "Self / Head",
+            "age": "30",
+            "gender": "Male",
+            "education": "Graduate",
+            "category": "ST",
+            "occupation": "Inspection Department",
+            "bankAccountStatus": "Private Account",
+            "bankName": "Central Bank",
+            "aadhaarNumber": "344142815256",
+            "healthProblems": "No",
+            "underTreatment": "No",
+            "mnregaJobCard": "Yes",
+            "contactNumber": "8639014888"
+        }
+    ]
+}

@@ -1,0 +1,6 @@
+__pycache__
+*.pyc
+.git
+.gitignore
+build_dataset.py
+data_summary.json

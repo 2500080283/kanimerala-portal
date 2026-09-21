@@ -1,0 +1,62 @@
+{
+    "household": {
+        "id": 24,
+        "headName": "L.seetharamaiah",
+        "mobileNumber": "9640779145",
+        "familyMembersCount": 2,
+        "houseOwnership": "Own House",
+        "houseType": "Pucca (Concrete/cement house)",
+        "toiletFacility": "Private",
+        "electricityConnection": "Yes",
+        "electricityAvailabilityHours": "24",
+        "solarPanelsAvailable": "No",
+        "vehiclePetrol2Wheeler": 1,
+        "appliancesListText": "Fridge, TV",
+        "mobileNetwork": "Jio",
+        "drinkingWaterAvailability": "Mineral Water (Buying)",
+        "waterSource": "Government Pipe Water",
+        "drainageFacility": "no",
+        "povertyStatus": "APL (Income More Than ₹1 Lakh)",
+        "mainIncomeSource": "security gaurd",
+        "annualIncome": "150000",
+        "landOwnership": "No Land",
+        "irrigationSystem": "None",
+        "cookingFuel": "LPG",
+        "memberMigrate": "No",
+        "remarks": "drainage problem",
+        "surveyDate": 1780818370244,
+        "surveyorName": "praneetha,vikas"
+    },
+    "members": [
+        {
+            "householdId": 24,
+            "name": "Lavuri seethamaraiah",
+            "relation": "Self / Head",
+            "age": "70",
+            "gender": "Male",
+            "education": "Illiterate",
+            "category": "ST",
+            "occupation": "Security gaurd",
+            "bankAccountStatus": "Government Account",
+            "bankName": "don't know",
+            "healthProblems": "breathing problem",
+            "underTreatment": "No",
+            "mnregaJobCard": "Yes"
+        },
+        {
+            "householdId": 24,
+            "name": "Lavuri Tulasi",
+            "relation": "Spouse",
+            "age": "60",
+            "gender": "Female",
+            "education": "Illiterate",
+            "category": "ST",
+            "occupation": "karuvupani",
+            "bankAccountStatus": "Government Account",
+            "bankName": "Union Bank of India",
+            "healthProblems": "BP ,Sugar",
+            "underTreatment": "No",
+            "mnregaJobCard": "Yes"
+        }
+    ]
+}

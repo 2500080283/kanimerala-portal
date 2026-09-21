@@ -1,0 +1,31 @@
+{
+    "household": {
+        "id": 2,
+        "headName": "banavathu baddhu",
+        "mobileNumber": "6305244675",
+        "familyMembersCount": 5,
+        "houseOwnership": "Own House",
+        "houseType": "Pucca (Concrete/cement house)",
+        "toiletFacility": "Private",
+        "electricityConnection": "Yes",
+        "solarPanelsAvailable": "No",
+        "appliancesListText": "Fridge",
+        "mobileNetwork": "Jio",
+        "dthProvider": "sun direct dish",
+        "drinkingWaterAvailability": "Tap Water",
+        "waterSource": "Government Pipe Water",
+        "drainageFacility": "no",
+        "povertyStatus": "APL (Income More Than ₹1 Lakh)",
+        "mainIncomeSource": "daily wage",
+        "annualIncome": "100000",
+        "landOwnership": "No Land",
+        "irrigationSystem": "None",
+        "cookingFuel": "LPG",
+        "memberMigrate": "No",
+        "governmentSchemesText": "Jal Jeevan Mission, amma wadi",
+        "remarks": "need the colony and sanitation facilities",
+        "surveyDate": 1780817545882,
+        "surveyorName": "M.mahesh,M.naveen,B.kartikeya"
+    },
+    "members": []
+}

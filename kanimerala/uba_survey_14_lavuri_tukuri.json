@@ -1,0 +1,26 @@
+{
+    "household": {
+        "id": 14,
+        "headName": "lavuri tukuri",
+        "mobileNumber": "8912996822",
+        "familyMembersCount": 1,
+        "houseOwnership": "Own House",
+        "houseType": "Pucca (Concrete/cement house)",
+        "toiletFacility": "Private",
+        "electricityConnection": "Yes",
+        "solarPanelsAvailable": "No",
+        "mobileNetwork": "Airtel",
+        "drinkingWaterAvailability": "Tap Water",
+        "waterSource": "Government Pipe Water",
+        "povertyStatus": "APL (Income More Than ₹1 Lakh)",
+        "landOwnership": "No Land",
+        "irrigationSystem": "None",
+        "cookingFuel": "LPG",
+        "memberMigrate": "No",
+        "governmentSchemesText": "fention",
+        "remarks": "water and current problem and no government hospital facilities",
+        "surveyDate": 1780816103364,
+        "surveyorName": "V Aravind"
+    },
+    "members": []
+}

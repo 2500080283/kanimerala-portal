@@ -1,0 +1,61 @@
+{
+    "household": {
+        "id": 7,
+        "headName": "Jarapala Hanumanth",
+        "familyMembersCount": 2,
+        "houseOwnership": "Own House",
+        "houseType": "Pucca (Concrete/cement house)",
+        "toiletFacility": "Private",
+        "electricityConnection": "Yes",
+        "electricityAvailabilityHours": "24",
+        "solarPanelsAvailable": "No",
+        "vehicleCycle": 1,
+        "mobileNetwork": "Jio",
+        "drinkingWaterAvailability": "Mineral Water (Buying)",
+        "waterSource": "Government Pipe Water",
+        "drainageFacility": "Yes",
+        "povertyStatus": "BPL (Income ₹1 Lakh or Less)",
+        "mainIncomeSource": "Agriculture",
+        "annualIncome": "50000",
+        "landOwnership": "Agricultural Land",
+        "landAreaOwned": "2",
+        "agriculturalInputsText": "Chemical Fertilizers, Chemical Pesticides, Organic Fertilizers, Chemical Weedicides",
+        "irrigationSystem": "Bore Well",
+        "agriculturalProduce": "Mango",
+        "cookingFuel": "LPG",
+        "memberMigrate": "No",
+        "surveyDate": 1780815502701,
+        "surveyorName": "Chandu and Suhitha"
+    },
+    "members": [
+        {
+            "householdId": 7,
+            "name": "Jarapala Hanumanth",
+            "relation": "Self / Head",
+            "age": "65",
+            "gender": "Male",
+            "education": "Illiterate",
+            "category": "ST",
+            "occupation": "Farmer",
+            "bankAccountStatus": "Government Account",
+            "bankName": "State Bank of India (SBI)",
+            "healthProblems": "Heart pain and leg pains",
+            "underTreatment": "No",
+            "mnregaJobCard": "No"
+        },
+        {
+            "householdId": 7,
+            "name": "Jarapala Devi",
+            "relation": "Spouse",
+            "age": "45",
+            "gender": "Female",
+            "education": "Illiterate",
+            "category": "ST",
+            "occupation": "Worker",
+            "bankAccountStatus": "Government Account",
+            "bankName": "Sapthagiri",
+            "underTreatment": "No",
+            "mnregaJobCard": "Yes"
+        }
+    ]
+}

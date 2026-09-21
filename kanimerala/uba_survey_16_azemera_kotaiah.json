@@ -1,0 +1,40 @@
+{
+    "household": {
+        "id": 16,
+        "headName": "azemera kotaiah",
+        "familyMembersCount": 2,
+        "houseOwnership": "Rented House",
+        "houseType": "Pucca (Concrete/cement house)",
+        "toiletFacility": "Private",
+        "electricityConnection": "Yes",
+        "solarPanelsAvailable": "No",
+        "mobileNetwork": "Airtel",
+        "drinkingWaterAvailability": "Not Available",
+        "waterSource": "Hand Pump",
+        "drainageFacility": "no proper drainage facilities",
+        "povertyStatus": "APL (Income More Than ₹1 Lakh)",
+        "landOwnership": "No Land",
+        "irrigationSystem": "None",
+        "cookingFuel": "LPG",
+        "memberMigrate": "No",
+        "remarks": "no proper drainage. \nno proper report facilities.\nno proper home to leave.",
+        "surveyDate": 1780818591628,
+        "surveyorName": "bollu kishore and seetha ram reddy."
+    },
+    "members": [
+        {
+            "householdId": 16,
+            "name": "azemera kotaiah",
+            "relation": "Self / Head",
+            "age": "60",
+            "gender": "Male",
+            "education": "Illiterate",
+            "category": "ST",
+            "bankAccountStatus": "Government Account",
+            "bankName": "State Bank of India (SBI)",
+            "healthProblems": "facing lot of problems likes back pain problem, knee problems",
+            "underTreatment": "Yes",
+            "mnregaJobCard": "No"
+        }
+    ]
+}

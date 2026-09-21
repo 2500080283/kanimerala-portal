@@ -1,0 +1,24 @@
+{
+    "household": {
+        "id": 17,
+        "headName": "mudu nageswarao",
+        "familyMembersCount": 4,
+        "houseOwnership": "Own House",
+        "houseType": "Pucca (Concrete/cement house)",
+        "toiletFacility": "Private",
+        "electricityConnection": "Yes",
+        "solarPanelsAvailable": "No",
+        "mobileNetwork": "Airtel",
+        "drinkingWaterAvailability": "Tap Water",
+        "waterSource": "Government Pipe Water",
+        "povertyStatus": "APL (Income More Than ₹1 Lakh)",
+        "landOwnership": "No Land",
+        "irrigationSystem": "None",
+        "cookingFuel": "LPG",
+        "memberMigrate": "No",
+        "governmentSchemesText": "amma vadi",
+        "surveyDate": 1780819586955,
+        "surveyorName": "kishore,seetharam"
+    },
+    "members": []
+}
